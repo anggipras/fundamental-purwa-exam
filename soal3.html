@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>VERSION V2.0</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script defer src="./3. Table-v2.0.js"></script>
+   
+    <style>
+        table,
+        th,
+        td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            padding: 10px;
+        }
+
+        form {
+            width: 50%;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Do Together : Finish input and render -->
+    <!-- Exercise in Class: Finish filter name -->
+    <!-- Exercise after Class :  Finish all filter-->
+
+    <!-- 
+        1. Dapat menginput data baru berupa nama, umur, dan pekerjaan. Jika pekerjaan yang di input tidak ada dalam list, maka akan di tambahkan ke list data pekerjaan baru, seperti yang di demokan di kelas
+        2. Dapat melakukan filter by name. Huruf kecil dan besar tidak berpengaruh untuk filter by name, tidak membedakan huruf besar dan kecil.
+        3. Dapat melakukan range umur minimum dan maksimum, umur minimum dan maksimum
+        4. Dapat filter pekerjaan
+     -->
+    <form >
+        <!-- FILTER -->
+        <fieldset>
+            <legend>Filter</legend>
+            <p>Nama: <input type="text" id="keyword" oninput="funFilter()"></p>
+            <p>Harga: <input type="number" name="min" id="min" onkeyup="funFilter()"> - <input type="number" name="max" id="max" onkeyup="funFilter()"></p>
+            <p>Category: <select name="category" id="categoryFilter" onchange="funFilter()"></select></p>
+        </fieldset>
+        
+        <!-- INPUT -->
+        <fieldset>
+            <legend>Input Data</legend>
+            <table>
+                <td><input type="text" name="nama" id="nameInput" placeholder="Nama"></td>
+                <td><input type="number" name="nama" id="priceInput" placeholder="Harga"></td>
+                <td><select name="category" id="categoryInput"></select></td>
+                <td><input type="text" name="nama" id="stockInput" placeholder="Stock"></td>
+            </table>
+            <p><input type="button" value="Input" onclick="funInputData()"></p>
+        </fieldset>
+
+        <!-- RENDER -->
+        <fieldset>
+            <legend>Tabel Data</legend>
+            <table id="myTable">
+                <thead>
+                    <th>Id</th>
+                    <th>Category</th>
+                    <th>Nama</th>
+                    <th>Price</th>
+                    <th>Stock</th>
+                    <th>Add to cart</th>
+                    <th colspan="2">Action</th>
+                </thead>
+                <tbody id="render">
+                    
+                </tbody>
+            </table>
+        </fieldset>
+
+        <!-- ADD TO CART -->
+        <div id="added"></div>
+
+        <!-- COUNT -->
+        <div id="counted"></div>
+    </form>
+</body>
+<script src="./soal3.js"></script>
+</html>

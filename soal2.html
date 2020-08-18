@@ -1,0 +1,50 @@
+<html>
+    <script>
+        var arrNum = []
+        var cond = true
+        do {
+            var input = parseInt(prompt('Masukkan angka: '))
+            if(input >= 0) {
+                arrNum.push(input)
+            } else if(input < 0) {
+                cond = false
+                break
+            }
+        } while (input >= 0)
+
+        var sortArr = arrNum.slice().sort((a,b) => a-b)
+
+        var minNum = ''
+        var maxNum = ''
+        var condMin = true
+        var condMax = true
+
+        for(i=0; i<sortArr.length; i++){
+            if(condMin) {
+                for(j=0; j<arrNum.length; j++) {
+                    if(sortArr[i] == arrNum[j]) {
+                        minNum += arrNum[j]
+                        condMin = false
+                        break
+                    }
+                }
+            }
+        }
+
+        for(i=sortArr.length-1; i>=0; i--){
+            if(condMax) {
+                for(j=0; j<arrNum.length; j++) {
+                    if(sortArr[i] == arrNum[j]) {
+                        maxNum += arrNum[j]
+                        condMax = false
+                        break
+                    }
+                }
+            }
+        }
+
+        console.log(arrNum)
+        console.log('Nilai tertinggi: ', maxNum)
+        console.log('Nilai terendah: ', minNum)
+    </script>
+</html>
